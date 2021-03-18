@@ -23,7 +23,8 @@
 
 
     <bean id="musicPlayer"
-          class="ru.spring.MusicPlayer">
+          class="ru.spring.MusicPlayer"
+          scope="prototype">
         <property name="musicList">
             <list>
                 <ref bean="classicalMusicBean"/>
