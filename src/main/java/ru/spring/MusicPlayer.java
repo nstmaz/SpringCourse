@@ -1,12 +1,18 @@
 package ru.spring;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class MusicPlayer {
     private Music music;
-
-    // IoC
-    public MusicPlayer(Music music) {
-        this.music=music;
-    }
+    private String name;
+    private int volume;
 
     public  void PlayMusic(){
         System.out.println("playing "+music.getSong());
