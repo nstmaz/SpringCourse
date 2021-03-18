@@ -2,10 +2,6 @@ package ru.spring;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * Hello world!
- *
- */
 public class TestSpring
 {
     public static void main( String[] args ) {
@@ -13,8 +9,9 @@ public class TestSpring
                 "applicationContext.xml"
         );
 
-        Music music = context.getBean("musicBean",Music.class);
-        MusicPlayer musicPlayer = new MusicPlayer(music);
+//        Music music = context.getBean("musicBean",Music.class);
+//        MusicPlayer musicPlayer = new MusicPlayer(music);
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.PlayMusic();
 
         context.close();
