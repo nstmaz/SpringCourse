@@ -9,11 +9,7 @@ import java.util.ArrayList;
 @PropertySource("classpath:musicPlayer.properties")
 public class RockMusic implements Music{
     @Override
-    public ArrayList<String> getSongs() {
-        ArrayList<String> songs = new ArrayList<>();
-        songs.add("Smoke on the Water");
-        songs.add("Should I Stay or Should I Go");
-        songs.add("Under Pressure");
-        return songs;
+    public String getSong() {
+        return "Should I Stay or Should I Go";
     }
 }

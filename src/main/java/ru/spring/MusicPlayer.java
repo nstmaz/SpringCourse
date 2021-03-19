@@ -1,14 +1,22 @@
 package ru.spring;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 @Component
+@Getter
+@Setter
 public class MusicPlayer {
+    @Value("${musicPlayer.name}")
+    private String name;
+
+    @Value("${musicPlayer.volume}")
+    private int volume;
+
     private Music classicalMusic;
     private Music rockMusic;
 
@@ -20,15 +28,7 @@ public class MusicPlayer {
         this.rockMusic = music2;
     }
 
-    public String PlayMusic(Genres genre) {
-        ArrayList songs = new ArrayList<String>();
-        if (genre == Genres.CLASSICAL)
-            songs = classicalMusic.getSongs();
-        else
-            songs = rockMusic.getSongs();
-
-        Random rnd = new Random();
-        int index = rnd.nextInt(3);
-        return "playing " + songs.get(index);
+    public String PlayMusic() {
+        return "playing " + rockMusic.getSong()+", "+classicalMusic.getSong();
     }
 }

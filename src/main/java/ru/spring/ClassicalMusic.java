@@ -1,20 +1,34 @@
 package ru.spring;
 
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import ru.spring.Music;
 
 import java.util.ArrayList;
 
 @Component
-@PropertySource("classpath:musicPlayer.properties")
+//@Scope("prototype")
+@PropertySource("musicPlayer.properties")
 public class ClassicalMusic implements Music {
+
+    @PostConstruct
+    public void springInit() {
+        System.out.println("initialization");
+    }
+
+    @PreDestroy
+    public void springDestroy() {
+        System.out.println("destruction");
+    }
+
     @Override
-    public ArrayList<String> getSongs() {
-        ArrayList<String> songs = new ArrayList<String>();
-        songs.add("Eine kleine Nachtmusik");
-        songs.add("O mio babbino caro");
-        songs.add("Toccata and Fugue in D minor");
-        return songs;
+    public String getSong() {
+        return "Eine kleine Nachtmusik";
     }
 }
