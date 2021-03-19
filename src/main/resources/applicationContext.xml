@@ -10,6 +10,7 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
+          scope="prototype"
           class="ru.spring.ClassicalMusic"
     init-method="springInit"
     destroy-method="springDestroy">
