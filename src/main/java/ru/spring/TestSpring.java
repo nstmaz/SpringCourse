@@ -2,6 +2,10 @@ package ru.spring;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+/**
+ * Hello world!
+ *
+ */
 public class TestSpring
 {
     public static void main( String[] args ) {
@@ -9,17 +13,14 @@ public class TestSpring
                 "applicationContext.xml"
         );
 
-        ClassicalMusic music1 = context.getBean("musicBean", ClassicalMusic.class);
+        Music music1 = context.getBean("classicalMusic",Music.class);
+        Music music2 = context.getBean("rockMusic",Music.class);
 
-        System.out.println(music1.getSong());
+        MusicPlayer musicPlayer = new MusicPlayer(music1);
+        musicPlayer.PlayMusic();
 
-//        Music music = context.getBean("musicBean",Music.class);
-//        MusicPlayer musicPlayer = new MusicPlayer(music);
-//        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-//
-//        System.out.println(musicPlayer.getVolume());
-//        System.out.println(musicPlayer.getName());
-//        System.out.println(musicPlayer.getMusic().getSong());
+        MusicPlayer musicPlayer2 = new MusicPlayer(music2);
+        musicPlayer2.PlayMusic();
 
         context.close();
     }
