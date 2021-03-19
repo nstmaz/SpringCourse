@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 @Component
 //@Scope("prototype")
-@PropertySource("musicPlayer.properties")
+
 public class ClassicalMusic implements Music {
 
     @PostConstruct
