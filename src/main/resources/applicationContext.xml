@@ -9,31 +9,18 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="classicalMusicBean"
-          class="ru.spring.ClassicalMusic">
+    <bean id="musicBean"
+          class="ru.spring.ClassicalMusic"
+    init-method="springInit"
+    destroy-method="springDestroy">
     </bean>
 
-    <bean id="rockMusicBean"
-          class="ru.spring.RockMusic">
-    </bean>
+<!--    <bean id="musicPlayer"-->
+<!--          class="ru.spring.MusicPlayer">-->
 
-    <bean id="jazzMusicBean"
-          class="ru.spring.JazzMusic">
-    </bean>
+<!--        <property name="music" ref="musicBean"/>-->
+<!--        <property name="name" value="${musicPlayer.name}"/>-->
+<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+<!--    </bean>-->
 
-
-    <bean id="musicPlayer"
-          class="ru.spring.MusicPlayer"
-          scope="prototype">
-        <property name="musicList">
-            <list>
-                <ref bean="classicalMusicBean"/>
-                <ref bean="rockMusicBean"/>
-                <ref bean="jazzMusicBean"/>
-            </list>
-        </property>
-
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
 </beans>

@@ -13,14 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MusicPlayer {
-    private List<Music> musicList = new ArrayList<>();
+//    private List<Music> musicList = new ArrayList<>();
+    private Music music;
     private String name;
     private int volume;
 
     public  void PlayMusic(){
-        for (Music genre:musicList) {
-            System.out.println("playing "+genre.getSong());
-        }
+        System.out.println(music.getSong());
 
     }
 }
