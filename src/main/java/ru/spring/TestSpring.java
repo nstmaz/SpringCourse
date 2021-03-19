@@ -1,7 +1,7 @@
 package ru.spring;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import ru.spring.config.SpringConfig;
 
 /**
  * Hello world!
@@ -14,6 +14,7 @@ public class TestSpring {
 
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
+        System.out.println(musicPlayer.PlayMusic());
         System.out.println(musicPlayer.getName());
         System.out.println(musicPlayer.getVolume());
         context.close();

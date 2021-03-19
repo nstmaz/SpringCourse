@@ -7,7 +7,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+//@Component
 @Getter
 @Setter
 public class MusicPlayer {
@@ -17,18 +21,17 @@ public class MusicPlayer {
     @Value("${musicPlayer.volume}")
     private int volume;
 
-    private Music classicalMusic;
-    private Music rockMusic;
+    private List<Music> genres;
 
 
-    @Autowired
-    public MusicPlayer(@Qualifier("classicalMusic") Music music1,
-                       @Qualifier("rockMusic") Music music2) {
-        this.classicalMusic = music1;
-        this.rockMusic = music2;
+//    @Autowired
+    public MusicPlayer(List<Music> genres) {
+        this.genres = genres;
     }
 
     public String PlayMusic() {
-        return "playing " + rockMusic.getSong()+", "+classicalMusic.getSong();
+        Random rnd = new Random();
+        int index = rnd.nextInt(genres.size());
+        return genres.get(index).getSong();
     }
 }

@@ -1,4 +1,4 @@
-package ru.spring;
+package ru.spring.genres;
 
 
 import org.springframework.beans.factory.annotation.Value;
@@ -12,20 +12,8 @@ import ru.spring.Music;
 
 import java.util.ArrayList;
 
-@Component
-//@Scope("prototype")
-
+//@Component("classicalMusic")
 public class ClassicalMusic implements Music {
-
-    @PostConstruct
-    public void springInit() {
-        System.out.println("initialization");
-    }
-
-    @PreDestroy
-    public void springDestroy() {
-        System.out.println("destruction");
-    }
 
     @Override
     public String getSong() {
