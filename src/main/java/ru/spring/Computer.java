@@ -17,7 +17,7 @@ public class Computer {
 
     @Override
     public String toString() {
-        return "Computer " + id + " " + player.PlayMusic();
+        return "Computer " + id + " " + player.PlayMusic(Genres.ROCK);
     }
 
 }
